@@ -32,7 +32,7 @@ void CPositionBase::GetDateTimeString(string & dateStr, string & timeStr)
 	timeStr = ss2.str();
 }
 
-bool CPositionBase::Push(CTube &tube, int mode)	//0根据信号自动，1异常情况下干预
+bool CPositionBase::Push(CTube &tube, int /*mode*/)	//0根据信号自动，1异常情况下干预
 {
 
 	if (m_tubes.size() == 0)
@@ -56,7 +56,7 @@ bool CPositionBase::Push(CTube &tube, int mode)	//0根据信号自动，1异常�
 	}
 }
 
-bool CPositionBase::Pop(CTube *pTube, int mode)
+bool CPositionBase::Pop(CTube *pTube, int /*mode*/)
 {
 	if (m_tubes.size() > 0)
 	{
@@ -110,15 +110,15 @@ void CPositionBase::UpdateTag()
 {
 }
 
-void CPositionBase::EntryTriggerBeforePush(CTube & tube)
+void CPositionBase::EntryTriggerBeforePush(CTube & /*tube*/)
 {
 }
 
-void CPositionBase::EntryTrigger(const CTube & tube)
+void CPositionBase::EntryTrigger(const CTube & /*tube*/)
 {
 }
 
-void CPositionBase::ExitTrigger(const CTube & tube)
+void CPositionBase::ExitTrigger(const CTube & /*tube*/)
 {
 }
 
