@@ -13,25 +13,21 @@ public:
 	~CTube() = default; // 也可以省略这一行，默认析构就是空的
 	CTube &operator=(const CTube &) = default;
 
-	string m_strTubeNo;				  // 管号
-	string m_strOrderNo;			  // 合同号
-	string m_strOrderNoOld;			  // 原合同号
-	string m_strItemNo = "0";		  // 项目号
-	string m_strBundleType = "000";	  // 管捆类型
-	string m_strRlNo;				  // 轧批号
-	string m_strMeltNo;				  // 炉号
-	string m_strLotNo;				  // 试批号
-	string m_strDiameter;			  // 外径（毫米）
-	string m_strThickness;			  // 壁厚（毫米）
-	string m_strLength;				  // 长度（米）
-	string m_strWeight;				  // 重量（公斤）
-	string m_strDefectCode;			  // 缺陷代码
-	string m_strDefectText;			  // 缺陷正文
-	string m_strLengthOk;			  // 长度合格
-	string m_strWeightOk;			  // 重量合格
-	string m_strHydroCheck;			  // 水压实绩
-	string m_strInspectCheck;		  // 探伤实绩
-	string m_strWeightPerMeter = "0"; // 米重
+	bool   calib_tube=false;           //样管
+	string order_no;    	        //合同号
+	string item_no;				//项目号
+	string roll_no;				//轧批号
+	string melt_no;				//炉号
+	string lot_no;				//试批号
+	int    tube_no=0;				//管号
+	int    flow_no=0;				//流水号
+	string lotno_coupling;		//接箍批号
+	string meltno_coupling;		//接箍炉号
+	float  length=0;          	    //长度(米)
+	float  weight=0;				//重量(KG)
+	bool   lengthOk=true;             //长度合格
+	bool   weightOk=true;             //重量合格
+	bool   bSprayed=false;             //是否喷印过
 };
 
 std::string trimString(std::string str)

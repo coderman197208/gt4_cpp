@@ -154,31 +154,32 @@ void CPositionBase::DisableUpdateTag()
 
 void CPositionBase::DebugOut()
 {
+    CTube tube;
+    if (!Peek(&tube))
+    {
+        std::cout << "没有管子信息" << std::endl;
+        return;
+    }
 
-	CTube tube;
-	if (!Peek(&tube))
-	{
-		std::cout << "没有管子信息" << std::endl;
-		return;
-	}
-	std::cout << "管号    :" << tube.m_strTubeNo << std::endl;
-	std::cout << "合同号  :" << tube.m_strOrderNo << std::endl;
-	std::cout << "原合同号:" << tube.m_strOrderNoOld << std::endl;
-	std::cout << "项目号  :" << tube.m_strItemNo << std::endl;
-	std::cout << "管捆类型:" << tube.m_strBundleType << std::endl;
-	std::cout << "轧批号  :" << tube.m_strRlNo << std::endl;
-	std::cout << "炉号    :" << tube.m_strMeltNo << std::endl;
-	std::cout << "试批号  :" << tube.m_strLotNo << std::endl;
-	std::cout << "外径    :" << tube.m_strDiameter << std::endl;
-	std::cout << "壁厚    :" << tube.m_strThickness << std::endl;
-	std::cout << "长度    :" << tube.m_strLength << std::endl;
-	std::cout << "重量    :" << tube.m_strWeight << std::endl;
-	std::cout << "缺陷代码:" << tube.m_strDefectCode << std::endl;
-	std::cout << "缺陷正文:" << tube.m_strDefectText << std::endl;
-	std::cout << "长度合格:" << tube.m_strLengthOk << std::endl;
-	std::cout << "重量合格:" << tube.m_strWeightOk << std::endl;
-	std::cout << "水压实绩:" << tube.m_strHydroCheck << std::endl;
-	std::cout << "探伤实绩:" << tube.m_strInspectCheck << std::endl;
-	
-	return;
+    std::cout << "合同号    :" << tube.order_no << std::endl;
+    std::cout << "项目号    :" << tube.item_no << std::endl;
+    std::cout << "轧批号    :" << tube.roll_no << std::endl;
+    std::cout << "炉号      :" << tube.melt_no << std::endl;
+    std::cout << "试批号    :" << tube.lot_no << std::endl;
+    std::cout << "管号      :" << tube.tube_no << std::endl;
+    std::cout << "流水号    :" << tube.flow_no << std::endl;
+    std::cout << "接箍批号  :" << tube.lotno_coupling << std::endl;
+    std::cout << "接箍炉号  :" << tube.meltno_coupling << std::endl;
+
+    // 数值格式化输出
+    std::cout << std::fixed << std::setprecision(3);
+    std::cout << "长度 (m)  :" << tube.length << std::endl;
+    std::cout << "重量 (kg) :" << tube.weight << std::endl;
+    std::cout << std::defaultfloat; // 恢复默认格式
+
+	std::cout << "长度合格  :" << (tube.lengthOk ? "是" : "否") << std::endl;
+	std::cout << "重量合格  :" << (tube.weightOk ? "是" : "否") << std::endl;
+	std::cout << "是否喷印  :" << (tube.bSprayed ? "是" : "否") << std::endl;
+
+    return;
 }
